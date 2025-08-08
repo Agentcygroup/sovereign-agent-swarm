@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sovereign-agent-swarm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sovereign-agent-swarm
+  template:
+    metadata:
+      labels:
+        app: sovereign-agent-swarm
+    spec:
+      containers:
+      - name: sovereign-agent-swarm
+        image: Agentcygroup/sovereign-agent-swarm:latest
+        ports:
+        - containerPort: 8000
